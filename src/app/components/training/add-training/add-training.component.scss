@@ -1,0 +1,44 @@
+
+.container{
+  width: 100%;
+}
+
+
+.page-wrap {
+
+  position: relative;
+}
+
+.sidebar {
+
+  position: fixed;
+
+
+}
+.error {
+  color: red;
+}
+#title {
+  background-color: #64b5f6;
+  color: white;
+  padding: 8px;
+  margin-top: 0px;
+  font-weight: 700;
+  text-align: center;
+}
+.mserror {
+  color: red;
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+}
+.success{
+color: green;
+text-align: center;
+margin: 20px;
+font-size: 20px;
+
+}
+select{
+  display: inline;
+}

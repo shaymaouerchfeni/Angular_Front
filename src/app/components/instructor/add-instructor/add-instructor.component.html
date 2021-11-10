@@ -1,0 +1,241 @@
+<div class="container">
+  <div class="row">
+    <div class="col s10 offset-s1" id="panel">
+      <h3 id="title">Add Instructor</h3>
+      <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{ errorMessage }}</span>
+      </div>
+      <div class="success">{{ msSuccess }}</div>
+
+      <form
+        autocomplete="off"
+        class="col s12"
+        [formGroup]="instructorForm"
+        novalidate
+        (ngSubmit)="addInstructor()"
+      >
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="text"
+              formControlName="username"
+            />
+            <label for="user_name">UserName</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['username'].valid &&
+                instructorForm.controls['username'].touched
+              "
+            >
+              Username is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="text"
+              formControlName="firstName"
+            />
+            <label for="user_name">fisrt Name</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['firstName'].valid &&
+                instructorForm.controls['firstName'].touched
+              "
+            >
+              fisrt Name is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="text"
+              formControlName="lastName"
+            />
+            <label for="user_name">last Name</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['lastName'].valid &&
+                instructorForm.controls['lastName'].touched
+              "
+            >
+              last Name is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="number"
+              formControlName="phoneNumber"
+            />
+            <label for="user_name">phone Number</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['phoneNumber'].valid &&
+                instructorForm.controls['phoneNumber'].touched
+              "
+            >
+              phone Number is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="number"
+              formControlName="cardNumber"
+            />
+            <label for="user_name">card Number</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['cardNumber'].valid &&
+                instructorForm.controls['cardNumber'].touched
+              "
+            >
+              card Number is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="number"
+              formControlName="hourlyRate"
+            />
+            <label for="user_name">hourly Rate</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['hourlyRate'].valid &&
+                instructorForm.controls['hourlyRate'].touched
+              "
+            >
+              hourly Rate is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="input-field col s4">Picture</label>
+          <div class="input-field col s6">
+            <div class="file-upload">
+              <input
+                type="file"
+                name="image"
+                ng2FileSelect
+                [uploader]="uploader"
+                (change)="pictureChangeEvent($event)"
+                accept="image/x-png,image/gif,image/jpeg"
+                placeholder="choose a file"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="input-field col s4">CV</label>
+          <div class="input-field col s6">
+            <div class="file-upload">
+              <input
+                type="file"
+                name="image"
+                ng2FileSelect
+                [uploader]="uploader"
+                (change)="cvChangeEvent($event)"
+                accept="image/x-png,image/gif,image/jpeg"
+                placeholder="choose a file"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              autocomplete="off"
+              id="user_name"
+              type="text"
+              formControlName="speciality"
+            />
+            <label for="user_name">speciality</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['speciality'].valid &&
+                instructorForm.controls['speciality'].touched
+              "
+            >
+              speciality is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" formControlName="email" />
+            <label for="email">Email</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['email'].valid &&
+                instructorForm.controls['email'].touched
+              "
+            >
+              Email is required
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="pass-word" type="password" formControlName="password" />
+            <label for="pass-word">Password</label>
+            <span
+              class="error"
+              *ngIf="
+                !instructorForm.controls['password'].valid &&
+                instructorForm.controls['password'].touched
+              "
+            >
+              Password is required
+            </span>
+          </div>
+        </div>
+
+        <button
+          class="btn postBtn"
+          id="signupbtn"
+          (click)="uploader.uploadAll()"
+          [disabled]="!instructorForm.valid"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

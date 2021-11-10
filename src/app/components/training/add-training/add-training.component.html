@@ -1,0 +1,115 @@
+<div class="row">
+  <h4 id="title">Add Training Course</h4>
+  <div class="mserror">{{ msError }}</div>
+  <div class="success">{{ msSuccess }}</div>
+  <form [formGroup]="trainingForm" novalidate (ngSubmit)="submitTraining()">
+    <div class="input-field col s12">
+      <input formControlName="title" type="text" class="validate" />
+      <label for="first_name">title :</label>
+      <span
+        class="error"
+        *ngIf="
+          !trainingForm.controls['title'].valid &&
+          trainingForm.controls['title'].touched
+        "
+      >
+        title is required
+      </span>
+    </div>
+
+    <div class="input-field col s12">
+      <textarea
+        formControlName="description"
+        type="text"
+        class="validate"
+      ></textarea>
+      <label for="first_name">Description :</label>
+      <span
+        class="error"
+        *ngIf="
+          !trainingForm.controls['description'].valid &&
+          trainingForm.controls['description'].touched
+        "
+      >
+        Description is required
+      </span>
+    </div>
+
+    <div class="input-field col s12">
+      <input formControlName="numberHours" type="number" class="validate" />
+      <label for="first_name">number of Hours :</label>
+      <span
+        class="error"
+        *ngIf="
+          !trainingForm.controls['numberHours'].valid &&
+          trainingForm.controls['numberHours'].touched
+        "
+      >
+        number of Hours are required
+      </span>
+    </div>
+
+    <div class="row">
+      <label class="input-field col s4">program</label>
+      <div class="input-field col s6">
+        <div class="file-upload">
+          <input
+            type="file"
+            name="image"
+            ng2FileSelect
+            [uploader]="uploader"
+            (change)="programChangeEvent($event)"
+            accept="image/x-png,image/gif,image/jpeg"
+            placeholder="choose a file"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="tags" class="label">Level</label>
+        <ng-select
+          [items]="level"
+          placeholder=" add level"
+          formControlName="level"
+        >
+        </ng-select>
+        <span
+          class="error"
+          *ngIf="
+            !trainingForm.controls['level'].valid &&
+            trainingForm.controls['level'].touched
+          "
+        >
+          level is required
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label for="tags" class="label">Training Keywords</label>
+        <ng-select
+          [items]="trainingCourses?.tags"
+          [addTag]="addCustomKeyWords"
+          [multiple]="true"
+          placeholder=" add custom training Keywords"
+          formControlName="tags"
+        >
+        </ng-select>
+      </div>
+    </div>
+
+    <div class="col s6 offset-m6">
+      <button
+        class="btn postBtn"
+        id="loginbtn"
+        (click)="uploader.uploadAll()"
+        [disabled]="!trainingForm.valid"
+      >
+        Post
+      </button>
+    </div>
+  </form>
+</div>

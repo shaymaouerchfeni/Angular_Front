@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col s12 m8">
+    <a>
+      <span>Training Courses</span>
+      <p class="num">{{ trainingCourses.length }}</p>
+    </a>
+  </div>
+  <div class="col s12 m8">
+    <a>
+      <span>Instructors</span>
+      <p class="num">{{ instructors.length }}</p>
+    </a>
+  </div>
+  <div class="col s12 m8">
+    <a>
+      <span>Traning Session</span>
+      <p class="num">{{ trainingSessions.length }}</p>
+    </a>
+  </div>
+</div>
+
+<ul *ngIf="user.role == 'admin'" class="collection with-header">
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/list-training']">
+      <div>
+        Training Courses<a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/add-training']">
+      <div>
+        Add Training<a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/list-instructors']">
+      <div>
+        List Of Instructors<a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/add-instructor']">
+      <div>
+        Add Instructor<a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/list-training-sessions']">
+      <div>
+        list training sessions
+        <a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+  <li
+    *ngIf="user.role == 'admin'"
+    class="collection-item"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <a [routerLink]="['/dashboard/add-training-session']">
+      <div>
+        add training session
+        <a href="#!" class="secondary-content"
+          ><i class="material-icons">people</i></a
+        >
+      </div>
+    </a>
+  </li>
+</ul>
